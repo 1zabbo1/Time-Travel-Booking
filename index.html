@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Travel Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #ff5722;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .booking-button {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .booking-button:hover {
+            background-color: #ff4500;
+        }
+
+        #destination-videos {
+            display: none;
+            margin-top: 20px;
+        }
+
+        iframe {
+            width: 560px;
+            height: 315px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Time Travel Booking</h1>
+    <p>Experience the wonders of time travel with our exclusive service!</p>
+    <p>Choose your era and destination:</p>
+    <select id="destination">
+        <option value="castle">Medieval Castle</option>
+        <option value="egypt">Ancient Egypt</option>
+        <option value="mars">2030</option>
+        <option value="dinosaur">Dinosaur Era</option>
+    </select>
+    <br><br>
+    <button class="booking-button" onclick="showVideos()">View Videos</button>
+    <div id="destination-videos">
+        <h2>Destination Videos</h2>
+        <div id="castle" class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Is1INaTh2mg?si=3irF0ceryxGWFyAp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div id="egypt" class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TMzouTzim0o?si=yET21Yiy6wWimW1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div id="mars" class="video">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/A1fcDP8L4gs?si=IZHBgAibW4wK3wru" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div id="dinosaur" class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/QNEEQ_sl848?si=SZNUa7eulaV9Yea5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <script>
+        function showVideos() {
+            const selectedDestination = document.getElementById("destination").value;
+            const destinationVideos = document.getElementById("destination-videos");
+            const videos = destinationVideos.getElementsByClassName("video");
+
+            for (let i = 0; i < videos.length; i++) {
+                videos[i].style.display = "none";
+            }
+
+            const selectedVideo = document.getElementById(selectedDestination);
+            if (selectedVideo) {
+                selectedVideo.style.display = "block";
+            }
+
+            destinationVideos.style.display = "block";
+        }
+    </script>
+</body>
+</html>
